@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /*import com.appspot.bucks_buddy.bucksbuddy.Bucksbuddy;
@@ -31,10 +33,13 @@ import com.google.api.client.json.gson.GsonFactory;*/
 
 import java.io.IOException;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     UserSessionManager session;
     View parentLayout;
+    TabLayout tabLayout;
 
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
@@ -48,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     EditText phoneText, pinText;
     Button loginButton;
     TextView signupLink;
+    LinearLayout loginLayout, regLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,6 +95,37 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         loginButton = (Button) findViewById(R.id.btn_login);
         signupLink = (TextView) findViewById(R.id.link_signup);*/
         parentLayout = findViewById(android.R.id.content);
+
+        loginLayout = (LinearLayout) findViewById(R.id.login_layout);
+        regLayout = (LinearLayout) findViewById(R.id.reg_layout);
+
+        tabLayout = (TabLayout) findViewById(R.id.login_tabs);
+
+        tabLayout.addTab(tabLayout.newTab().setText("SIGN IN"));
+        tabLayout.addTab(tabLayout.newTab().setText("REGISTER"));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(tab.getPosition() == 0) {
+                    regLayout.setVisibility(View.INVISIBLE);
+                    loginLayout.setVisibility(View.VISIBLE);
+                } else {
+                    loginLayout.setVisibility(View.INVISIBLE);
+                    regLayout.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     public void login() {
@@ -329,5 +366,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

@@ -148,7 +148,7 @@
     <dimen name="item_touch_helper_swipe_escape_velocity">120.0dip</dimen>
     <item type="dimen" name="login_item_font_size">@dimen/text_medium</item>
     <dimen name="login_item_left_padding">18.0dip</dimen>
-    <dimen name="login_screen_items_vgap">20.0dip</dimen>
+    <dimen name="login_screen_items_vgap">30.0dip</dimen>
     <dimen name="login_screen_left_margin">25.0dip</dimen>
     <dimen name="login_screen_right_margin">25.0dip</dimen>
     <dimen name="money_tag_margin">5.0dip</dimen>
