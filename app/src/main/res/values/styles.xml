@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="FarmourTheme" parent="@style/Theme.AppCompat">
+        <item name="android:textColorPrimary">@color/fc_white</item>
+        <item name="android:windowBackground">@color/fc_white</item>
+        <item name="android:radioButtonStyle">@style/FarmourTheme.RadioButton.Light</item>
+        <item name="android:spinnerStyle">@style/FarmourTheme.Spinner</item>
+        <item name="android:spinnerItemStyle">@style/FarmourTheme.SpinnerItem</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/fc_background_light_green</item>
+    </style>
+
+    <style name="FarmourTheme.SpinnerItem" parent="@android:style/Widget.TextView.SpinnerItem">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="FarmourTheme.RadioButton.Light" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingTop">20.0dip</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableLeft">@drawable/fc_radio_button_light</item>
+        <item name="android:drawablePadding">10.0dip</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+        <item name="spinBars">true</item>
+    </style>
+
+    <style name="FarmourTheme.Spinner" parent="@android:style/Widget.Spinner">
+        <item name="android:background">@drawable/fc_spinner_selector_dark</item>
+    </style>
+
+    <style name="FarmourTheme.Button" parent="@android:style/Widget.Button">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_height">44.0dip</item>
+        <item name="android:layout_marginLeft">10.0dip</item>
+        <item name="android:layout_marginTop">20.0dip</item>
+        <item name="android:layout_marginRight">10.0dip</item>
+        <item name="android:layout_marginBottom">10.0dip</item>
+        <item name="android:minWidth">64.0dip</item>
+        <item name="android:minHeight">44.0dip</item>
+    </style>
+
+    <style name="FarmourTheme.Edit" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">@dimen/text_default</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/fc_text_hint_gray</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_height">35.0dip</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="FarmourTheme.Edit.White" parent="@style/FarmourTheme.Edit">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/fc_text_selector_white</item>
+    </style>
+
+    <style name="FarmourTheme.Button.Gray" parent="@style/FarmourTheme.Button">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@drawable/fc_button_selector_gray</item>
+    </style>
+</resources>

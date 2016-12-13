@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_window_focused="false" android:state_enabled="true" android:drawable="@drawable/text_field_default_white" />
+    <item android:state_focused="true" android:state_enabled="true" android:drawable="@drawable/text_field_focused_white" />
+    <item android:state_enabled="true" android:drawable="@drawable/text_field_focused_white" android:state_activated="true" />
+    <item android:drawable="@drawable/text_field_default_white" />
+</selector>
