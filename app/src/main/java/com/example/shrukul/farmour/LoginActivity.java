@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -51,9 +52,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private GoogleApiClient mGoogleApiClient;
 
     EditText phoneText, pinText;
-    Button loginButton;
+    Button loginButton, regButton;
     TextView signupLink;
     LinearLayout loginLayout, regLayout;
+    AutoCompleteTextView loginEmail;
+    EditText loginPassword, regEmail, regName, regMobile, regPassword;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,6 +97,33 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         pinText = (EditText) findViewById(R.id.input_pin);
         loginButton = (Button) findViewById(R.id.btn_login);
         signupLink = (TextView) findViewById(R.id.link_signup);*/
+
+        loginEmail = (AutoCompleteTextView) findViewById(R.id.login_email);
+        loginPassword= (EditText) findViewById(R.id.login_password);
+
+        regEmail = (EditText) findViewById(R.id.reg_email);
+        regPassword= (EditText) findViewById(R.id.reg_password);
+        regMobile= (EditText) findViewById(R.id.reg_mobile);
+        regName= (EditText) findViewById(R.id.reg_name);
+
+        loginButton = (Button) findViewById(R.id.login_button);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                InputMethodManager inputManager = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
+                UserSessionManager session = new UserSessionManager(getApplicationContext());
+                session.createUserLoginSession("Srinidhi", loginEmail.getText().toString(), "7829899075", "hmmm");
+
+                Intent it = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(it);
+                finish();
+            }
+        });
+
         parentLayout = findViewById(android.R.id.content);
 
         loginLayout = (LinearLayout) findViewById(R.id.login_layout);

@@ -114,4 +114,9 @@
         <item name="android:textColorHint">?android:textColorHint</item>
         <item name="android:textColorLink">?android:textColorLink</item>
     </style>
+
+    <style name="FarmourTheme.Navigation" parent="FarmourTheme">
+        <item name="android:textColorPrimary">@color/black_opaque_50</item>
+        <item name="android:textColorSecondary">@color/black_opaque_50</item>
+    </style>
 </resources>

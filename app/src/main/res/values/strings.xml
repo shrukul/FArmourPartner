@@ -3,4 +3,8 @@
     <string name="register_button">SIGN UP</string>
     <string name="default_view_behavior">com.example.shrukul.farmour.ViewBehaviour</string>
     <string name="sign_in">SIGN IN</string>
+    <string name="home_string">Home</string>
+    <string name="signout">Sign Out</string>
+    <string name="openDrawer">Open navigation drawer</string>
+    <string name="closeDrawer">Close navigation drawer</string>
 </resources>
