@@ -119,4 +119,12 @@
         <item name="android:textColorPrimary">@color/black_opaque_50</item>
         <item name="android:textColorSecondary">@color/black_opaque_50</item>
     </style>
+
+    <style name="FarmourTheme.ItemTextView">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColor">@color/white_opaque_90</item>
+        <item name="android:textSize">20.0dp</item>
+    </style>
 </resources>
