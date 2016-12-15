@@ -62,14 +62,14 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/salad" />
+                                android:src="@drawable/legume" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Produces" />
+                                android:text="Pulses" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -105,14 +105,14 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/invest" />
+                                android:src="@drawable/cereal" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Invest" />
+                                android:text="Cereals" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -155,14 +155,14 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/meat" />
+                                android:src="@drawable/vegetable" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Meat" />
+                                android:text="Vegetables" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -198,14 +198,14 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/insurance" />
+                                android:src="@drawable/fruit" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Insurance" />
+                                android:text="Fruits" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -249,14 +249,14 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/farmtech" />
+                                android:src="@drawable/oil" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Farm-Tech" />
+                                android:text="Edible Oil" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 

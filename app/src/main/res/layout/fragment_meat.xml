@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                     android:orientation="vertical">
 
                     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/produce"
+                        android:id="@+id/chicken"
                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -62,14 +62,14 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/salad" />
+                                android:src="@drawable/chicken" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Produces" />
+                                android:text="Chicken" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -82,7 +82,7 @@
                     android:orientation="vertical">
 
                     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/invest"
+                        android:id="@+id/mutton"
                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -105,14 +105,14 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/invest" />
+                                android:src="@drawable/lamb" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Invest" />
+                                android:text="Mutton" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -132,7 +132,7 @@
                     android:orientation="vertical">
 
                     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/meat"
+                        android:id="@+id/pork"
                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -155,19 +155,18 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/meat" />
+                                android:src="@drawable/pig" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Meat" />
+                                android:text="Pork" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -175,7 +174,7 @@
                     android:orientation="vertical">
 
                     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/insurance"
+                        android:id="@+id/seafood"
                         xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -198,109 +197,14 @@
                                 android:layout_height="0dp"
                                 android:layout_margin="30dp"
                                 android:layout_weight="3"
-                                android:src="@drawable/insurance" />
+                                android:src="@drawable/fish" />
 
                             <TextView
                                 style="@style/FarmourTheme.ItemTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="Insurance" />
-                        </LinearLayout>
-                    </android.support.v7.widget.CardView>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:weightSum="2">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/farmtech"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        card_view:cardElevation="2dp"
-                        card_view:cardMaxElevation="2dp"
-                        card_view:cardPreventCornerOverlap="false">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:orientation="vertical"
-                            android:weightSum="4">
-
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="0dp"
-                                android:layout_margin="30dp"
-                                android:layout_weight="3"
-                                android:src="@drawable/farmtech" />
-
-                            <TextView
-                                style="@style/FarmourTheme.ItemTextView"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="Farm-Tech" />
-                        </LinearLayout>
-                    </android.support.v7.widget.CardView>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/support"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        card_view:cardElevation="2dp"
-                        card_view:cardMaxElevation="2dp"
-                        card_view:cardPreventCornerOverlap="false">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:orientation="vertical"
-                            android:weightSum="4">
-
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="0dp"
-                                android:layout_margin="30dp"
-                                android:layout_weight="3"
-                                android:src="@drawable/support" />
-
-                            <TextView
-                                style="@style/FarmourTheme.ItemTextView"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="Support" />
+                                android:text="Sea Food" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 

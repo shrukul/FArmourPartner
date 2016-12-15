@@ -1,9 +1,11 @@
 package com.example.shrukul.farmour;
 
+import android.animation.ValueAnimator;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //Replacing the main content with ContentFragment Which is our Inbox View;
                     case R.id.home:
-                        FragmentHome fragment_home= new FragmentHome();
+                        FragmentHome fragment_home = new FragmentHome();
                         fragmentTransaction.replace(R.id.frame, fragment_home);
                         fragmentTransaction.commit();
                         Log.d(TAG, "Home");
@@ -140,13 +143,59 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        FragmentHome fragment_home= new FragmentHome();
+        FragmentHome fragment_home = new FragmentHome();
         fragmentTransaction.replace(R.id.frame, fragment_home);
         fragmentTransaction.commit();
+
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+
+            ValueAnimator anim;
+
+            @Override
+            public void onBackStackChanged() {
+                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+//                    getSupportActionBar().setDisplayHomeAsUpEnabled(true); // show back button
+
+                    anim = ValueAnimator.ofFloat(0, 1);
+
+                    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onBackPressed();
+                        }
+                    });
+                } else {
+                    anim = ValueAnimator.ofFloat(1, 0);
+
+                    //show hamburger
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                    actionBarDrawerToggle.syncState();
+                    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            drawerLayout.openDrawer(GravityCompat.START);
+                        }
+                    });
+                }
+
+                anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        float slideOffset = (Float) valueAnimator.getAnimatedValue();
+                        actionBarDrawerToggle.onDrawerSlide(drawerLayout, slideOffset);
+                    }
+                });
+                anim.setInterpolator(new DecelerateInterpolator());
+// You can change this duration to more closely match that of the default animation.
+                anim.setDuration(500);
+                anim.start();
+            }
+        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "onptionsitemselected");
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,8 +33,9 @@ import static android.content.Context.SEARCH_SERVICE;
 /**
  * Created by Admin on 04-06-2015.
  */
-public class FragmentHome extends Fragment implements View.OnClickListener {
+public class FragmentProd extends Fragment implements View.OnClickListener {
 
+    private static final String TAG = "FragmentProd";
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
     CardView produce, invest, meat, insurance, farmtech, support;
 
@@ -42,7 +44,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_home, container, false);
+        View v = inflater.inflate(R.layout.fragment_prod, container, false);
         return v;
     }
 
@@ -56,19 +58,12 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        produce = (CardView) getView().findViewById(R.id.produce);
+/*        produce = (CardView) getView().findViewById(R.id.produce);
         invest= (CardView) getView().findViewById(R.id.invest);
         meat = (CardView) getView().findViewById(R.id.meat);
         insurance = (CardView) getView().findViewById(R.id.insurance);
         farmtech = (CardView) getView().findViewById(R.id.farmtech);
-        support = (CardView) getView().findViewById(R.id.support);
-
-        produce.setOnClickListener(this);
-        invest.setOnClickListener(this);
-        meat.setOnClickListener(this);
-        insurance.setOnClickListener(this);
-        farmtech.setOnClickListener(this);
-        support.setOnClickListener(this);
+        support = (CardView) getView().findViewById(R.id.support);*/
     }
 
     @Override
@@ -89,44 +84,25 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         switch (v.getId()) {
             case R.id.produce:
-                FragmentProd fragment_prod = new FragmentProd();
-                fragmentTransaction.replace(R.id.frame, fragment_prod);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case R.id.invest:
-                FragmentInvest fragmentInvest = new FragmentInvest();
-                fragmentTransaction.replace(R.id.frame, fragmentInvest);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case R.id.meat:
-                FragmentMeat fragment_meat = new FragmentMeat();
-                fragmentTransaction.replace(R.id.frame, fragment_meat);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case R.id.insurance:
-                FragmentInsurance fragment_insurance = new FragmentInsurance();
-                fragmentTransaction.replace(R.id.frame, fragment_insurance);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case R.id.farmtech:
-                FragmentFarmTech fragmentFarmTech = new FragmentFarmTech();
-                fragmentTransaction.replace(R.id.frame, fragmentFarmTech);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case R.id.support:
-                FragmentSupport fragmentSupport = new FragmentSupport();
-                fragmentTransaction.replace(R.id.frame, fragmentSupport);
-                fragmentTransaction.addToBackStack(null);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentHome fragment_home= new FragmentHome();
+                fragmentTransaction.replace(R.id.frame, fragment_home);
                 fragmentTransaction.commit();
                 break;
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG,"item"+item);
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Called when the up caret in actionbar is pressed
+                getActivity().onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
