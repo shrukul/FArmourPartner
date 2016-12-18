@@ -90,6 +90,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         switch (v.getId()) {
             case R.id.produce:
                 FragmentProd fragment_prod = new FragmentProd();

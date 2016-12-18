@@ -127,4 +127,11 @@
         <item name="android:textColor">@color/white_opaque_90</item>
         <item name="android:textSize">20.0dp</item>
     </style>
+
+    <style name="FarmourTheme.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/white_opaque_70</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/colorAccent</item>
+    </style>
 </resources>
