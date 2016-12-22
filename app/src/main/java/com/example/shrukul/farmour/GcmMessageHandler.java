@@ -50,7 +50,7 @@ public class GcmMessageHandler extends GcmListenerService {
                 .setSmallIcon(R.drawable.notifcation_icon)
                 .setContentTitle("bucksbuddy")
                 .setContentText(typ)
-                .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.app_icon))
+                .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.logo))
                 .setStyle(new android.support.v4.app.NotificationCompat.BigTextStyle().bigText(body));
         ;
         notificationManager.notify(1, mBuilder.build());

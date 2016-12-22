@@ -1,5 +1,9 @@
 package com.example.shrukul.farmour;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,7 +19,7 @@ import java.util.List;
  */
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> {
 
-    public static class PersonViewHolder extends RecyclerView.ViewHolder {
+    public static class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         CardView cv;
         TextView personName;
@@ -23,6 +27,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         ImageView personPhoto;
         TextView amount;
         ImageView type;
+        private static Context mc;
 
         PersonViewHolder(View itemView) {
             super(itemView);
@@ -35,10 +40,26 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
             personAge = (TextView) itemView.findViewById(R.id.recent_item_number);
             personPhoto = (ImageView) itemView.findViewById(R.id.recent_item_pic);
             amount = (TextView) itemView.findViewById(R.id.amt);
+            mc = itemView.getContext();
+            cv.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int i = getAdapterPosition();
+            Person person = persons.get(i);
+
+            Intent it = new Intent(mc, Seller.class);
+            it.putExtra("name", person.getName());
+            it.putExtra("phone", person.getPhone());
+            it.putExtra("price", person.getAmount());
+            ActivityOptionsCompat options = ActivityOptionsCompat
+                    .makeSceneTransitionAnimation((Activity) mc, (View) personPhoto, "profile");
+            mc.startActivity(it, options.toBundle());
         }
     }
 
-    List<Person> persons;
+    private static List<Person> persons;
 
     RVAdapter(List<Person> persons) {
         this.persons = persons;

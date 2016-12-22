@@ -16,6 +16,7 @@
 
         <ImageView
             android:id="@+id/recent_item_pic"
+            android:transitionName="profile"
             android:layout_width="50.0dip"
             android:layout_height="50.0dip"
             android:layout_alignParentLeft="true"

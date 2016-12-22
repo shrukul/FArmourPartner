@@ -24,6 +24,10 @@ public class SellerList extends AppCompatActivity {
     private static final int MEAT_PORK = 3;
     private static final int MEAT_SEAFOOD = 4;
 
+    private static final int INSURANCE_FARM = 5;
+    private static final int INSURANCE_VEHICLE = 6;
+    private static final int INSURANCE_LIFE = 7;
+
     private List<Person> persons;
     TempData tempData;
     private RecyclerView rv;
@@ -78,6 +82,15 @@ public class SellerList extends AppCompatActivity {
                 rv.setAdapter(new RVAdapter(td.getPorkList()));
                 break;
             case MEAT_SEAFOOD:
+                rv.setAdapter(new RVAdapter(td.getSeaFoodList()));
+                break;
+            case INSURANCE_FARM:
+                rv.setAdapter(new RVAdapter(td.getMuttonList()));
+                break;
+            case INSURANCE_VEHICLE:
+                rv.setAdapter(new RVAdapter(td.getPorkList()));
+                break;
+            case INSURANCE_LIFE:
                 rv.setAdapter(new RVAdapter(td.getSeaFoodList()));
                 break;
         }

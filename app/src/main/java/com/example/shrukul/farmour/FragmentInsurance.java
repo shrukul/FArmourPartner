@@ -37,7 +37,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
 
     private static final String TAG = "FragmentInsurance";
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
-    CardView produce, invest, meat, insurance, farmtech, support;
+    CardView farm, vehicle, life, support;
 
     TextView amt;
 
@@ -58,12 +58,13 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-/*        produce = (CardView) getView().findViewById(R.id.produce);
-        invest= (CardView) getView().findViewById(R.id.invest);
-        meat = (CardView) getView().findViewById(R.id.meat);
-        insurance = (CardView) getView().findViewById(R.id.insurance);
-        farmtech = (CardView) getView().findViewById(R.id.farmtech);
-        support = (CardView) getView().findViewById(R.id.support);*/
+        farm = (CardView) getView().findViewById(R.id.farm);
+        vehicle= (CardView) getView().findViewById(R.id.vehicle);
+        life = (CardView) getView().findViewById(R.id.life);
+
+        farm.setOnClickListener(this);
+        vehicle.setOnClickListener(this);
+        life.setOnClickListener(this);
     }
 
     @Override
@@ -84,14 +85,23 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+        Intent it = new Intent(getActivity(), SellerList.class);
         switch (v.getId()) {
-            case R.id.produce:
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                FragmentHome fragment_home= new FragmentHome();
-                fragmentTransaction.replace(R.id.frame, fragment_home);
-                fragmentTransaction.commit();
+            case R.id.farm:
+                it.putExtra("type", 1);
+                it.putExtra("item", "far,");
+                break;
+            case R.id.vehicle:
+                it.putExtra("type", 2);
+                it.putExtra("item", "vehicle");
+                break;
+            case R.id.life:
+                it.putExtra("type", 3);
+                it.putExtra("item", "life");
                 break;
         }
+        startActivity(it);
+        getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
     }
 
     @Override

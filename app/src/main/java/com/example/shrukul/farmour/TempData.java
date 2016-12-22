@@ -72,4 +72,16 @@ public class TempData {
         chickenList.add(new Person("Vishvesh", "9712124124", R.drawable.user, "590", 1));
         return chickenList;
     }
+
+    public List<Person> getInsuranceFarmList() {
+        return getChickenList();
+    }
+
+    public List<Person> getInsuranceVehicleList() {
+        return getMuttonList();
+    }
+
+    public List<Person> getInsuranceLifeList() {
+        return getPorkList();
+    }
 }
