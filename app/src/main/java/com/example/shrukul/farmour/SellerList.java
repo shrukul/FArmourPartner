@@ -46,7 +46,7 @@ public class SellerList extends AppCompatActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("FArmour");
+        getSupportActionBar().setTitle(getIntent().getStringExtra("item"));
 
         llm = new LinearLayoutManager(this);
         rv = (RecyclerView) findViewById(R.id.rv);
@@ -65,7 +65,6 @@ public class SellerList extends AppCompatActivity {
         Thread t = getThread();
         t.start();
     }
-
 
 
     private void fillTempContent(int type) {
@@ -115,7 +114,7 @@ public class SellerList extends AppCompatActivity {
     }
 
     public Thread getThread() {
-        return new Thread(){
+        return new Thread() {
             @Override
             public void run() {
                 try {
@@ -134,7 +133,9 @@ public class SellerList extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            };
+            }
+
+            ;
         };
     }
 }

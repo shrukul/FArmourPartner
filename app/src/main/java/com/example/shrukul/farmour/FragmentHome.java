@@ -57,7 +57,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         produce = (CardView) getView().findViewById(R.id.produce);
-        invest= (CardView) getView().findViewById(R.id.invest);
+        invest = (CardView) getView().findViewById(R.id.invest);
         meat = (CardView) getView().findViewById(R.id.meat);
         insurance = (CardView) getView().findViewById(R.id.insurance);
         farmtech = (CardView) getView().findViewById(R.id.farmtech);

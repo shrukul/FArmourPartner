@@ -37,7 +37,7 @@ public class FragmentFarmTech extends Fragment implements View.OnClickListener {
 
     private static final String TAG = "FragmentFarmTech";
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
-    CardView produce, invest, meat, insurance, farmtech, support;
+    CardView seeds, fertilizers, tools, machinery;
 
     TextView amt;
 
@@ -58,12 +58,15 @@ public class FragmentFarmTech extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-/*        produce = (CardView) getView().findViewById(R.id.produce);
-        invest= (CardView) getView().findViewById(R.id.invest);
-        meat = (CardView) getView().findViewById(R.id.meat);
-        insurance = (CardView) getView().findViewById(R.id.insurance);
-        farmtech = (CardView) getView().findViewById(R.id.farmtech);
-        support = (CardView) getView().findViewById(R.id.support);*/
+        seeds = (CardView) getView().findViewById(R.id.seeds);
+        fertilizers = (CardView) getView().findViewById(R.id.fertilizers);
+        tools = (CardView) getView().findViewById(R.id.tools);
+        machinery = (CardView) getView().findViewById(R.id.machinery);
+
+        seeds.setOnClickListener(this);
+        fertilizers.setOnClickListener(this);
+        tools.setOnClickListener(this);
+        machinery.setOnClickListener(this);
     }
 
     @Override
@@ -84,19 +87,28 @@ public class FragmentFarmTech extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Intent it = new Intent(getActivity(), SubCategory.class);
         switch (v.getId()) {
-            case R.id.produce:
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                FragmentHome fragment_home= new FragmentHome();
-                fragmentTransaction.replace(R.id.frame, fragment_home);
-                fragmentTransaction.commit();
+            case R.id.seeds:
+                it.putExtra("type", "Seeds");
+                break;
+            case R.id.fertilizers:
+                it.putExtra("type", "Fertilizers");
+                break;
+            case R.id.tools:
+                it.putExtra("type", "Tools");
+                break;
+            case R.id.machinery:
+                it.putExtra("type", "Machinery");
                 break;
         }
+        startActivity(it);
+        getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG,"item"+item);
+        Log.d(TAG, "item" + item);
         switch (item.getItemId()) {
             case android.R.id.home:
                 // Called when the up caret in actionbar is pressed

@@ -37,7 +37,7 @@ public class FragmentProd extends Fragment implements View.OnClickListener {
 
     private static final String TAG = "FragmentProd";
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
-    CardView produce, invest, meat, insurance, farmtech, support;
+    CardView pulses, cereals, vegetables, fruits, oil;
 
     TextView amt;
 
@@ -58,12 +58,17 @@ public class FragmentProd extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-/*        produce = (CardView) getView().findViewById(R.id.produce);
-        invest= (CardView) getView().findViewById(R.id.invest);
-        meat = (CardView) getView().findViewById(R.id.meat);
-        insurance = (CardView) getView().findViewById(R.id.insurance);
-        farmtech = (CardView) getView().findViewById(R.id.farmtech);
-        support = (CardView) getView().findViewById(R.id.support);*/
+        pulses = (CardView) getView().findViewById(R.id.pulses);
+        cereals= (CardView) getView().findViewById(R.id.cereals);
+        vegetables = (CardView) getView().findViewById(R.id.vegetables);
+        fruits = (CardView) getView().findViewById(R.id.fruits);
+        oil = (CardView) getView().findViewById(R.id.oil);
+
+        pulses.setOnClickListener(this);
+        cereals.setOnClickListener(this);
+        vegetables.setOnClickListener(this);
+        fruits.setOnClickListener(this);
+        oil.setOnClickListener(this);
     }
 
     @Override
@@ -84,14 +89,26 @@ public class FragmentProd extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Intent it = new Intent(getActivity(), SubCategory.class);
         switch (v.getId()) {
-            case R.id.produce:
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                FragmentHome fragment_home= new FragmentHome();
-                fragmentTransaction.replace(R.id.frame, fragment_home);
-                fragmentTransaction.commit();
+            case R.id.pulses:
+                it.putExtra("type", "Pulses");
+                break;
+            case R.id.cereals:
+                it.putExtra("type", "Cereals");
+                break;
+            case R.id.vegetables:
+                it.putExtra("type", "Vegetables");
+                break;
+            case R.id.fruits:
+                it.putExtra("type", "Fruits");
+                break;
+            case R.id.oil:
+                it.putExtra("type", "Edible Oil");
                 break;
         }
+        startActivity(it);
+        getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
     }
 
     @Override

@@ -89,15 +89,15 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.farm:
                 it.putExtra("type", 1);
-                it.putExtra("item", "far,");
+                it.putExtra("item", "Farm");
                 break;
             case R.id.vehicle:
                 it.putExtra("type", 2);
-                it.putExtra("item", "vehicle");
+                it.putExtra("item", "Vehicle");
                 break;
             case R.id.life:
                 it.putExtra("type", 3);
-                it.putExtra("item", "life");
+                it.putExtra("item", "Life");
                 break;
         }
         startActivity(it);
