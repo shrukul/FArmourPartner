@@ -1,4 +1,4 @@
-package com.example.shrukul.farmour;
+package com.example.shrukul.farmourseller;
 
 import org.junit.Test;
 

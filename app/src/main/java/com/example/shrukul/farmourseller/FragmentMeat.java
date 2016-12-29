@@ -1,4 +1,4 @@
-package com.example.shrukul.farmour;
+package com.example.shrukul.farmourseller;
 
 import android.animation.LayoutTransition;
 import android.app.ProgressDialog;
@@ -33,18 +33,18 @@ import static android.content.Context.SEARCH_SERVICE;
 /**
  * Created by Admin on 04-06-2015.
  */
-public class FragmentInvest extends Fragment implements View.OnClickListener {
+public class FragmentMeat extends Fragment implements View.OnClickListener {
 
-    private static final String TAG = "FragmentInvest";
+    private static final String TAG = "FragmentMeat";
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
-    CardView produce, invest, meat, insurance, farmtech, support;
+    CardView chicken, mutton, pork, seafood;
 
     TextView amt;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_invest, container, false);
+        View v = inflater.inflate(R.layout.fragment_meat, container, false);
         return v;
     }
 
@@ -58,12 +58,15 @@ public class FragmentInvest extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-/*        produce = (CardView) getView().findViewById(R.id.produce);
-        invest= (CardView) getView().findViewById(R.id.invest);
-        meat = (CardView) getView().findViewById(R.id.meat);
-        insurance = (CardView) getView().findViewById(R.id.insurance);
-        farmtech = (CardView) getView().findViewById(R.id.farmtech);
-        support = (CardView) getView().findViewById(R.id.support);*/
+        chicken = (CardView) getView().findViewById(R.id.chicken);
+        mutton= (CardView) getView().findViewById(R.id.mutton);
+        pork = (CardView) getView().findViewById(R.id.pork);
+        seafood= (CardView) getView().findViewById(R.id.seafood);
+
+        chicken.setOnClickListener(this);
+        mutton.setOnClickListener(this);
+        pork.setOnClickListener(this);
+        seafood.setOnClickListener(this);
     }
 
     @Override
@@ -84,14 +87,27 @@ public class FragmentInvest extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Intent it = new Intent(getActivity(), Form.class);
         switch (v.getId()) {
-            case R.id.produce:
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                FragmentHome fragment_home= new FragmentHome();
-                fragmentTransaction.replace(R.id.frame, fragment_home);
-                fragmentTransaction.commit();
+            case R.id.chicken:
+                it.putExtra("type", 1);
+                it.putExtra("item", "Chicken");
+                break;
+            case R.id.mutton:
+                it.putExtra("type", 2);
+                it.putExtra("item", "Mutton");
+                break;
+            case R.id.pork:
+                it.putExtra("type", 3);
+                it.putExtra("item", "Pork");
+                break;
+            case R.id.seafood:
+                it.putExtra("type", 4);
+                it.putExtra("item", "SeaFood");
                 break;
         }
+        startActivity(it);
+        getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
     }
 
     @Override

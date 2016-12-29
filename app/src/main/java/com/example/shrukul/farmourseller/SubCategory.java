@@ -1,4 +1,4 @@
-package com.example.shrukul.farmour;
+package com.example.shrukul.farmourseller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,7 +57,7 @@ public class SubCategory extends AppCompatActivity {
 
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-                Intent it = new Intent(SubCategory.this, SellerList.class);
+                Intent it = new Intent(SubCategory.this, Form.class);
                 it.putExtra("type", new Random().nextInt(7));
                 it.putExtra("item", selectedList[position]);
                 startActivity(it);

@@ -1,4 +1,4 @@
-package com.example.shrukul.farmour;
+package com.example.shrukul.farmourseller;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.shrukul.farmour", appContext.getPackageName());
+        assertEquals("com.example.shrukul.farmourseller", appContext.getPackageName());
     }
 }

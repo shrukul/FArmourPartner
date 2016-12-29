@@ -1,4 +1,4 @@
-package com.example.shrukul.farmour;
+package com.example.shrukul.farmourseller;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.example.shrukul.farmour;
+package com.example.shrukul.farmourseller;
 
 import android.content.DialogInterface;
 import android.os.Bundle;

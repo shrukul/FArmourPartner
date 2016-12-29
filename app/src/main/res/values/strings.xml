@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">FArmour</string>
+    <string name="app_name">FArmour Partner</string>
     <string name="register_button">SIGN UP</string>
-    <string name="default_view_behavior">com.example.shrukul.farmour.ViewBehaviour</string>
+    <string name="default_view_behavior">com.example.shrukul.farmourseller.ViewBehaviour</string>
     <string name="sign_in">SIGN IN</string>
+    <string name="submit">Submit</string>
     <string name="home_string">Home</string>
     <string name="signout">Sign Out</string>
     <string name="openDrawer">Open navigation drawer</string>

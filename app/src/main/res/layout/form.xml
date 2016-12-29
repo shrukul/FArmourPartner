@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_margin="25.0dip"
+        android:background="@drawable/selector_text_box"
+        android:orientation="vertical"
+        android:padding="1.0dip">
+
+        <EditText
+            android:id="@id/login_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#ffffffff"
+            android:drawableLeft="@drawable/rupee_new"
+            android:drawablePadding="12.0dip"
+            android:ellipsize="end"
+            android:gravity="center|left"
+            android:hint="Quote a Price"
+            android:inputType="number"
+            android:maxLength="20"
+            android:minHeight="48.0dip"
+            android:nextFocusForward="@+id/login_button"
+            android:paddingBottom="10.0dip"
+            android:paddingLeft="@dimen/login_item_left_padding"
+            android:paddingTop="10.0dip"
+            android:textColor="@color/fc_black"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="@dimen/text_small"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:background="@color/divider_login" />
+
+        <EditText
+            android:id="@id/login_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#ffffffff"
+            android:drawableLeft="@drawable/quality_new"
+            android:drawablePadding="12.0dip"
+            android:ellipsize="end"
+            android:gravity="center|left"
+            android:hint="Quote the Quality (Subect to Verification)"
+            android:inputType="number"
+            android:maxLength="20"
+            android:minHeight="48.0dip"
+            android:nextFocusForward="@+id/login_button"
+            android:paddingBottom="10.0dip"
+            android:paddingLeft="@dimen/login_item_left_padding"
+            android:paddingTop="10.0dip"
+            android:textColor="@color/fc_black"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="@dimen/text_small"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:background="@color/divider_login" />
+
+        <EditText
+            android:id="@id/login_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#ffffffff"
+            android:drawableLeft="@drawable/grade_new"
+            android:drawablePadding="12.0dip"
+            android:ellipsize="end"
+            android:gravity="center|left"
+            android:hint="Quote the Grade (Subect to Verification)"
+            android:inputType="number"
+            android:maxLength="20"
+            android:minHeight="48.0dip"
+            android:nextFocusForward="@+id/login_button"
+            android:paddingBottom="10.0dip"
+            android:paddingLeft="@dimen/login_item_left_padding"
+            android:paddingTop="10.0dip"
+            android:textColor="@color/fc_black"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="@dimen/text_small"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:background="@color/divider_login" />
+
+        <EditText
+            android:id="@id/login_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#ffffffff"
+            android:drawableLeft="@drawable/quantity_new"
+            android:drawablePadding="12.0dip"
+            android:ellipsize="end"
+            android:gravity="center|left"
+            android:hint="Quote the Quantity"
+            android:inputType="number"
+            android:maxLength="20"
+            android:minHeight="48.0dip"
+            android:nextFocusForward="@+id/login_button"
+            android:paddingBottom="10.0dip"
+            android:paddingLeft="@dimen/login_item_left_padding"
+            android:paddingTop="10.0dip"
+            android:textColor="@color/fc_black"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="@dimen/text_small"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit_button"
+        style="@style/FarmourTheme.Button.Gray"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:layout_margin="25.0dip"
+        android:layout_marginTop="@dimen/login_screen_items_vgap"
+        android:background="@drawable/btn_default_bg_selector"
+        android:minHeight="50.0dip"
+        android:minWidth="100.0dip"
+        android:text="@string/submit"
+        android:textColor="@color/fc_background_white"
+        android:textSize="@dimen/text_medium"
+        android:textStyle="bold" />
+
+</LinearLayout>

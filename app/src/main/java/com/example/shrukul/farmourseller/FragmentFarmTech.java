@@ -1,4 +1,4 @@
-package com.example.shrukul.farmour;
+package com.example.shrukul.farmourseller;
 
 import android.animation.LayoutTransition;
 import android.app.ProgressDialog;
@@ -33,18 +33,18 @@ import static android.content.Context.SEARCH_SERVICE;
 /**
  * Created by Admin on 04-06-2015.
  */
-public class FragmentMeat extends Fragment implements View.OnClickListener {
+public class FragmentFarmTech extends Fragment implements View.OnClickListener {
 
-    private static final String TAG = "FragmentMeat";
+    private static final String TAG = "FragmentFarmTech";
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
-    CardView chicken, mutton, pork, seafood;
+    CardView seeds, fertilizers, tools, machinery;
 
     TextView amt;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_meat, container, false);
+        View v = inflater.inflate(R.layout.fragment_farmtech, container, false);
         return v;
     }
 
@@ -58,15 +58,15 @@ public class FragmentMeat extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        chicken = (CardView) getView().findViewById(R.id.chicken);
-        mutton= (CardView) getView().findViewById(R.id.mutton);
-        pork = (CardView) getView().findViewById(R.id.pork);
-        seafood= (CardView) getView().findViewById(R.id.seafood);
+        seeds = (CardView) getView().findViewById(R.id.seeds);
+        fertilizers = (CardView) getView().findViewById(R.id.fertilizers);
+        tools = (CardView) getView().findViewById(R.id.tools);
+        machinery = (CardView) getView().findViewById(R.id.machinery);
 
-        chicken.setOnClickListener(this);
-        mutton.setOnClickListener(this);
-        pork.setOnClickListener(this);
-        seafood.setOnClickListener(this);
+        seeds.setOnClickListener(this);
+        fertilizers.setOnClickListener(this);
+        tools.setOnClickListener(this);
+        machinery.setOnClickListener(this);
     }
 
     @Override
@@ -87,23 +87,19 @@ public class FragmentMeat extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent it = new Intent(getActivity(), SellerList.class);
+        Intent it = new Intent(getActivity(), SubCategory.class);
         switch (v.getId()) {
-            case R.id.chicken:
-                it.putExtra("type", 1);
-                it.putExtra("item", "Chicken");
+            case R.id.seeds:
+                it.putExtra("type", "Seeds");
                 break;
-            case R.id.mutton:
-                it.putExtra("type", 2);
-                it.putExtra("item", "Mutton");
+            case R.id.fertilizers:
+                it.putExtra("type", "Fertilizers");
                 break;
-            case R.id.pork:
-                it.putExtra("type", 3);
-                it.putExtra("item", "Pork");
+            case R.id.tools:
+                it.putExtra("type", "Tools");
                 break;
-            case R.id.seafood:
-                it.putExtra("type", 4);
-                it.putExtra("item", "SeaFood");
+            case R.id.machinery:
+                it.putExtra("type", "Machinery");
                 break;
         }
         startActivity(it);
@@ -112,7 +108,7 @@ public class FragmentMeat extends Fragment implements View.OnClickListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG,"item"+item);
+        Log.d(TAG, "item" + item);
         switch (item.getItemId()) {
             case android.R.id.home:
                 // Called when the up caret in actionbar is pressed

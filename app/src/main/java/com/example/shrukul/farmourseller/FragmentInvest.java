@@ -1,4 +1,4 @@
-package com.example.shrukul.farmour;
+package com.example.shrukul.farmourseller;
 
 import android.animation.LayoutTransition;
 import android.app.ProgressDialog;
@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -33,18 +34,18 @@ import static android.content.Context.SEARCH_SERVICE;
 /**
  * Created by Admin on 04-06-2015.
  */
-public class FragmentInsurance extends Fragment implements View.OnClickListener {
+public class FragmentInvest extends Fragment implements View.OnClickListener {
 
-    private static final String TAG = "FragmentInsurance";
+    private static final String TAG = "FragmentInvest";
     private final String serverUrl = "http://bucksbuddy.pe.hu/index.php";
-    CardView farm, vehicle, life, support;
+    CardView invest_farm;
 
     TextView amt;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_insurance, container, false);
+        View v = inflater.inflate(R.layout.fragment_invest, container, false);
         return v;
     }
 
@@ -58,13 +59,14 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        farm = (CardView) getView().findViewById(R.id.farm);
-        vehicle= (CardView) getView().findViewById(R.id.vehicle);
-        life = (CardView) getView().findViewById(R.id.life);
+        invest_farm= (CardView) getView().findViewById(R.id.invest_farm);
+/*        invest= (CardView) getView().findViewById(R.id.invest);
+        meat = (CardView) getView().findViewById(R.id.meat);
+        insurance = (CardView) getView().findViewById(R.id.insurance);
+        farmtech = (CardView) getView().findViewById(R.id.farmtech);
+        support = (CardView) getView().findViewById(R.id.support);*/
 
-        farm.setOnClickListener(this);
-        vehicle.setOnClickListener(this);
-        life.setOnClickListener(this);
+        invest_farm.setOnClickListener(this);
     }
 
     @Override
@@ -85,23 +87,21 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        Intent it = new Intent(getActivity(), SellerList.class);
         switch (v.getId()) {
-            case R.id.farm:
-                it.putExtra("type", 1);
-                it.putExtra("item", "Farm");
-                break;
-            case R.id.vehicle:
-                it.putExtra("type", 2);
-                it.putExtra("item", "Vehicle");
-                break;
-            case R.id.life:
-                it.putExtra("type", 3);
-                it.putExtra("item", "Life");
+            case R.id.invest_farm:
+                final Snackbar snackbar = Snackbar.make(getView(), "Invest isn't available at this time...", Snackbar.LENGTH_LONG);
+                View snackBarView = snackbar.getView();
+                snackBarView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+                snackbar.setAction("Dismiss", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.setActionTextColor(getResources().getColor(R.color.white_opaque_70));
+                snackbar.show();
                 break;
         }
-        startActivity(it);
-        getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
     }
 
     @Override
